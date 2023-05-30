@@ -15,7 +15,7 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const admin = searchParams.get("admin");
   const apiKey = searchParams.get("apiKey");
-  const term = searchParams.get("term") || `("hello" OR "goodbye") "AND" ("love" OR "hate") -is:retweet`;
+  const term = searchParams.get("term") || `("hello" OR "goodbye") "AND" ("love" OR "hate")`;
 
   // check for valid keys: http://localhost:3000/api?admin=cat&apiKey=dog&term=(%22hello%22%20OR%20%22goodbye%22)%20%22AND%22%20(%22love%22%20OR%20%22hate%22)
   if (admin !== process.env.ADMIN) return NextResponse.json({ error: "Invalid Admin Key" }, { status: 401 });
