@@ -26,7 +26,7 @@ export async function GET(req: Request) {
     // https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-all
     // https://github.com/PLhery/node-twitter-api-v2/blob/master/doc/v2.md#search-tweets-recent
     const tweets: TweetV2[] = await client.v2
-      .search(term, {
+      .search(term  + " -is:retweet", {
         start_time: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
         max_results: 50,
         "tweet.fields": ["public_metrics"],
