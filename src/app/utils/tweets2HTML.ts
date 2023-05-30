@@ -1,12 +1,12 @@
 import {TweetV2 } from "twitter-api-v2";
-
+// @ts-nocheck
 export default function tweets2HTML(tweets: TweetV2[]): string {
   let table = "";
   for (const tweet of tweets) {
     table += `
         <tr>
             <td><a href='https://twitter.com/a/status/${tweet.id}' target='_blank'>${tweet.text}</a></td>
-            <td>${tweet.public_metrics?.impression_count || 0}</td>
+            <td>${(tweet.public_metrics as any).impression_count || 0 }</td>
             <td>${tweet.public_metrics?.like_count || 0}</td>
             <td>${tweet.public_metrics?.retweet_count || 0}</td>
             <td><a href='https://twitter.com/intent/tweet?in_reply_to=${tweet.id}' target='_blank'>Reply</a></td>
