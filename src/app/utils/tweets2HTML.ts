@@ -9,7 +9,6 @@ export default function tweets2HTML(tweets: TweetV2[]): string {
             <td>${(tweet.public_metrics as any).impression_count || 0 }</td>
             <td>${tweet.public_metrics?.like_count || 0}</td>
             <td>${tweet.public_metrics?.retweet_count || 0}</td>
-            <td><a href='https://twitter.com/intent/tweet?in_reply_to=${tweet.id}' target='_blank'>Reply</a></td>
         </tr>`;
   }
   // create html
@@ -42,7 +41,6 @@ export default function tweets2HTML(tweets: TweetV2[]): string {
                 <th>Views</th>
                 <th>Likes</th>
                 <th>Retweets</th>
-                <th>Reply</th>
             </tr>
             ${table}
         </table>
